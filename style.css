@@ -8,6 +8,7 @@ body{
   flex-direction: column;
   text-align: center;
   align-items: center;
+  background-color: #333;
 }
 .header{
   display: flex;
@@ -65,8 +66,7 @@ body{
   flex-direction: column;
   font-size: 18px;
 }
-.hint{
-  min-height: 50px;
+.massage{
   padding: 10px 0;
 }
 .score{
