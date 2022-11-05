@@ -3,3 +3,79 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.header{
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+.header .again_btn{
+  font-size: 36px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.header .range{
+  font-size: 26px;
+}
+.showcase{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.showcase .show_box{
+  background-color: #fff;
+  color: #333;
+  /* display: inline; */
+  font-size: 50px;
+  padding: 10px 30px;
+  margin: 10px;
+  /* max-width: 80px; */
+}
+.game_section{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+.check_section{
+  display: flex;
+  flex-direction: column;
+}
+.check_input{
+  height: 50px;
+  width: 50px;
+  margin: 10px 0;
+  font-size: 26px;
+}
+.check_btn{
+  padding: 5px 0;
+  cursor: pointer;
+}
+.info_section{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.hint{
+  min-height: 50px;
+  padding: 10px 0;
+}
+.score{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+.high_score{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
