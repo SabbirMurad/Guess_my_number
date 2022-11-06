@@ -15,6 +15,7 @@ let highScoreValue = document.querySelector('.high_score_value');
 let showBox = document.querySelector('.show_box');
 let msg = document.querySelector('.massage');
 let gameOver=false;
+
 chechBtn.addEventListener('click',function(){
   if(gameOver){
     return;
@@ -33,31 +34,27 @@ chechBtn.addEventListener('click',function(){
     gameOver=true;
   }
   else if(correctNumber<val){
-    score--;
-    scoreValue.textContent=score;
-    if(score==0){
-      gameOver=true;
-      msg.textContent='You lost';
-    }
-    else{
-      msg.textContent="Lower";
-    }
+    ifWrongNumber('Lower')
   }
   else{
-    score--;
-    scoreValue.textContent=score;
-    if(score==0){
-      gameOver=true;
-      msg.textContent='You lost';
-    }
-    else{
-      msg.textContent='Higher';
-    }
+    ifWrongNumber('Higher')
   }
 })
 
+function ifWrongNumber(msgContent){
+  score--;
+  scoreValue.textContent=score;
+  if(score==0){
+    gameOver=true;
+    msg.textContent='You lost';
+  }
+  else{
+    msg.textContent=msgContent;
+  }
+}
 // things that happens when again is clicked
 let againBtn= document.querySelector('.again_btn');
+
 againBtn.addEventListener('click',function(){
   correctNumber=randomNumber(1,20);
   score=20;
