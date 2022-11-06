@@ -1,6 +1,7 @@
 //generates a random number between the two given number
 function randomNumber(start , end){
-  return (start+Math.round((end-1)*Math.random()));
+  let range=end-start;
+  return (start+Math.round(range*Math.random()));
 }
 let correctNumber=randomNumber(1,20);
 let score=20;
@@ -13,25 +14,45 @@ let scoreValue = document.querySelector('.score_value');
 let highScoreValue = document.querySelector('.high_score_value');
 let showBox = document.querySelector('.show_box');
 let msg = document.querySelector('.massage');
-
+let gameOver=false;
 chechBtn.addEventListener('click',function(){
-  if(correctNumber==checkInput.value){
+  if(gameOver){
+    return;
+  }
+  let val=Number(checkInput.value);
+  if(!val){
+    msg.textContent='No number detected';
+  }
+  else if(correctNumber==val){
     showBox.textContent=correctNumber;
     msg.textContent='You gussed right';
     if(score>highScore){
       highScoreValue.textContent=score;
       highScore=score;
     }
+    gameOver=true;
   }
-  else if(correctNumber<checkInput.value){
-    msg.textContent='Lower';
+  else if(correctNumber<val){
     score--;
     scoreValue.textContent=score;
+    if(score==0){
+      gameOver=true;
+      msg.textContent='You lost';
+    }
+    else{
+      msg.textContent="Lower";
+    }
   }
   else{
-    msg.textContent='Higher';
     score--;
     scoreValue.textContent=score;
+    if(score==0){
+      gameOver=true;
+      msg.textContent='You lost';
+    }
+    else{
+      msg.textContent='Higher';
+    }
   }
 })
 
@@ -44,4 +65,5 @@ againBtn.addEventListener('click',function(){
   showBox.textContent='?';
   checkInput.value='';
   scoreValue.textContent=score;
+  gameOver=false;
 })
